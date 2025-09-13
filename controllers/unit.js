@@ -92,7 +92,7 @@ const getUrl = async (req, res) => {
     const path = unit.filePath;
     const { data, error } = await supabase.storage
       .from("notelab")
-      .createSignedUrl(path, 120);
+      .createSignedUrl(path, 3600);
 
     if (error)
       return sendError(res, 400, false, "Error on getting url from storage.", {
