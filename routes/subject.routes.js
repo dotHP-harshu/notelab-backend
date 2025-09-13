@@ -13,7 +13,7 @@ const multer = require("multer");
 const upload = multer();
 
 router.post("/add",  upload.single("file"), addSubject  )
-router.get("/get", authMiddleware, getSubjects);
+router.get("/get", getSubjects);
 router.get("/get/:id", authMiddleware, getOneSubject);
 router.get("/getList", authMiddleware, getSubjectsList);
 router.put("/update/:id", authMiddleware, updateSubject);
