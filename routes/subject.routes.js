@@ -15,9 +15,9 @@ const upload = multer();
 router.post("/add",  upload.single("file"), addSubject  )
 router.get("/get", getSubjects);
 router.get("/get/:id", authMiddleware, getOneSubject);
-router.get("/getList", authMiddleware, getSubjectsList);
+router.get("/getList",  getSubjectsList);
 router.put("/update/:id", authMiddleware, updateSubject);
 router.delete("/delete/:id", authMiddleware, deleteSubject);
-router.get("/search", authMiddleware, querySearch);
+router.get("/search", querySearch);
 
 module.exports = router
