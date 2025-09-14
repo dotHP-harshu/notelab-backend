@@ -24,8 +24,7 @@ module.exports.logoutUser = (req, res) => {
 };
 
 module.exports.getUser = async (req, res) => {
-  const { id } = req.userId;
-
+  const id = req.userId;
   try {
     const user = await userModel.findById(id);
     if (!user)
