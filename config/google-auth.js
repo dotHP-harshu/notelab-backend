@@ -23,6 +23,7 @@ passport.use(
             photo: photos[0].value,
           });
           console.log("user created");
+          return cb(null, newUser);
         }
         return cb(null, user);
       } catch (error) {

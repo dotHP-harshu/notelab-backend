@@ -15,7 +15,7 @@ function authMiddleware (req, res, next){
           code: 401,
         });
 
-        req.userId = match
+        req.userId = match.id;
         next()
         
         
