@@ -8,8 +8,6 @@ const authRouter = require('./routes/auth.routes')
 const bookmarkRouter = require('./routes/bookmark.routes')
 const passport = require("passport")
 const cookieParser = require("cookie-parser")
-// connect the database
-databaseConnection()
 
 // passport google auth
 require("./config/google-auth")
@@ -43,10 +41,13 @@ app.get("/", (req, res)=>{
     }
 })
 
-
-
-
-
-app.listen(3000, ()=>{
-    console.log("server started")
-})
+const PORT = process.env.PORT || 3000
+databaseConnection()
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log("✅ Server started on port", PORT)
+    })
+  })
+  .catch(err => {
+    console.error("❌ Failed to connect to database:", err)
+  })
